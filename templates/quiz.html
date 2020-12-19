@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>App</title>
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="main_quiz_page">
+        <div class="main_quiz_box">
+            <!-- <h1>quiz page</h1> -->
+            <h2>{{ quiz_choice }}</h2>
+            <!-- <h3>{{ rows }}</h3> -->
+            <h2>{{ random_row[0] }}</h2>
+            <h2 id="answer_line">Answer: {{ random_row[1] }}</h2>
+        </div>
+        <div id="quiz_button_one">
+            <button onclick="document.getElementById('answer_line').style.visibility = 'visible'">one</button>
+        </div>
+        <div id="quiz_button_two">
+            <button onclick="location.reload()">two</button>
+        </div>
+    </div>
+</body>
+
+</html>

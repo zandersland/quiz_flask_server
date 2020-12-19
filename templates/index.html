@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>App</title>
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="index_page_quiz_choices">
+        <h1>Choose one of the quizzes from below</h1>
+        {% for x in quiz_choices %}
+        <a href="/quiz?quiz={{ x }}">{{ x }}</a><br><br>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
