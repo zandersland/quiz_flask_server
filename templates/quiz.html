@@ -8,21 +8,57 @@
 </head>
 
 <body>
+    <script>
+        let quizArray = [["http port", "port 80"], ["ssh port", "port 22"]]
+        console.log(quizArray)
+        console.log(quizArray[0][1])
+    </script>
+    <script>
+        function loadQA() {
+            document.getElementById("quiz_question").innerHTML = quizArray[0][0];
+            document.getElementById("answer_line").innerHTML = quizArray[0][1];
+            // TODO Make this work on button 2 click
+        }
+    </script>
+    <script>
+        function nextQuestion(correctAnswer) {
+            console.log("function code is running")
+            console.log(correctAnswer)
+            if (correctAnswer == true) {
+                quizArray.pop(0)
+            }
+            console.log(quizArray)
+            loadQA();
+        }
+    </script>
+
+
+    <button id="go_back_button" onclick="window.history.back()">Go Back</button>
     <div class="main_quiz_page">
         <div class="main_quiz_box">
-            <!-- <h1>quiz page</h1> -->
-            <h2>{{ quiz_choice }}</h2>
-            <!-- <h3>{{ rows }}</h3> -->
-            <h2>{{ random_row[0] }}</h2>
-            <h2 id="answer_line">Answer: {{ random_row[1] }}</h2>
+            <!-- <h1>quiz page</h1>
+             <h2>{{ quiz_choice }}</h2>
+             <h3>{{ rows }}</h3> -->
+            <!-- <h2>{{ random_row[0] }}</h2> -->
+            <!-- <h2 id="answer_line">Answer: {{ random_row[1] }}</h2> -->
+            <h2 id="quiz_question"></h2>
+            <h2 id="answer_line"></h2>
+            <!-- {{ rows }} -->
         </div>
         <div id="quiz_button_one">
             <button onclick="document.getElementById('answer_line').style.visibility = 'visible'">one</button>
         </div>
         <div id="quiz_button_two">
-            <button onclick="location.reload()">two</button>
+            <!-- <a href="/quiz?topic={{ topic_choice }}&quiz={{ quiz_choice }}"><button >two</button></a> -->
+            <button onclick="nextQuestion(true)">two</button>
+        </div>
+        <div id="quiz_button_three">
+            <button>three</button>
         </div>
     </div>
+    <script>
+        loadQA();
+    </script>
 </body>
 
 </html>

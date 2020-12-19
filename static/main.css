@@ -4,7 +4,7 @@ body {
     overflow: hidden;
 }
 
-.index_page_quiz_choices {
+.page_choices {
     color: #FFFFFF;
     text-align: center;
 }
@@ -16,8 +16,8 @@ a {
 .main_quiz_page {
     color: #FFFFFF;
     display: grid;
-    grid-template-columns: 40vw 20vw 7vw 7vw 23vw;
-    grid-template-rows: 40vh 20vh 5vh 35vh;
+    grid-template-rows: 30vh 20vh 5vh 45vh;
+    grid-template-columns: 35vw 20vw 7vw 7vw 7vw 21vw;
 }
 
 .main_quiz_box {
@@ -44,7 +44,19 @@ a {
     width: 100%; */
 }
 
+#quiz_button_three {
+    grid-row: 3;
+    grid-column: 5;
+    /* height: 100%;
+    width: 100%; */
+}
+
 button {
     height: 100%;
     width: 100%;
+}
+
+#go_back_button {
+    height: 10vh;
+    width: 15vw;
 }

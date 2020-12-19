@@ -8,12 +8,12 @@
 </head>
 
 <body>
+    <button id="go_back_button" onclick="window.history.back()">Go Back</button>
     <div class="page_choices">
-        <h1>Choose one of the topics from below</h1>
-        {% for x in topic_choices %}
-        <a href="/topic?topic={{ x }}"><h2>{{ x }}</h2></a><br><br>
+        <h1>Choose one of the quizzes from below</h1>
+        {% for x in quiz_choices %}
+        <a href="/quiz?topic={{ topic_choice }}&quiz={{ x }}"><h2>{{ x }}</h2></a><br><br>
         {% endfor %}
     </div>
 </body>
-
 </html>
