@@ -26,9 +26,10 @@ a {
     text-align: center;
 }
 
-#quiz_button_one {
+#quiz_button_one, #quiz_button_one button {
     grid-row: 3;
     grid-column: 3;
+    background-color: #bbbbff;
     /* height: 100%;
     width: 100%; */
 }
@@ -37,16 +38,18 @@ a {
     visibility: hidden;
 }
 
-#quiz_button_two {
+#quiz_button_two, #quiz_button_two button {
     grid-row: 3;
     grid-column: 4;
+    background-color: #ffbbbb;
     /* height: 100%;
     width: 100%; */
 }
 
-#quiz_button_three {
+#quiz_button_three, #quiz_button_three button {
     grid-row: 3;
     grid-column: 5;
+    background-color: #bbffbb;
     /* height: 100%;
     width: 100%; */
 }

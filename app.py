@@ -41,6 +41,7 @@ def quiz():
     else:
         rows = request.args.get('rows')
     random_row = random.choice(rows)
+    random.shuffle(rows)
     return render_template('quiz.html', topic_choice=topic_choice, quiz_choice=quiz_choice, rows=rows, random_row=random_row)
 
 

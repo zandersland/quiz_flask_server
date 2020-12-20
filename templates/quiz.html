@@ -2,32 +2,37 @@
 <html lang="en">
 
 <head>
-    <title>App</title>
+    <title>{{ topic_choice }} Quiz</title>
     <link rel="stylesheet" href="static/main.css">
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <script>
-        let quizArray = [["http port", "port 80"], ["ssh port", "port 22"]]
-        console.log(quizArray)
-        console.log(quizArray[0][1])
+        let quizArray = [{% for x in rows %}["{{ x[0] }}", "{{ x[1] }}"], {% endfor %}]
     </script>
     <script>
         function loadQA() {
-            document.getElementById("quiz_question").innerHTML = quizArray[0][0];
-            document.getElementById("answer_line").innerHTML = quizArray[0][1];
-            // TODO Make this work on button 2 click
+            if (quizArray.length != 0) {
+                document.getElementById("quiz_question").innerHTML = quizArray[0][0];
+                document.getElementById("answer_line").innerHTML = quizArray[0][1];
+                document.getElementById('answer_line').style.visibility = 'hidden'
+            }
+            else {
+                document.getElementById("quiz_question").innerHTML = 'Done!';
+                document.getElementById("answer_line").innerHTML = '';
+            }
         }
     </script>
     <script>
         function nextQuestion(correctAnswer) {
-            console.log("function code is running")
-            console.log(correctAnswer)
             if (correctAnswer == true) {
-                quizArray.pop(0)
+                quizArray.shift();
             }
-            console.log(quizArray)
+            else if (correctAnswer == false) {
+                quizArray.push(quizArray[0])
+                quizArray.shift();
+            }
             loadQA();
         }
     </script>
@@ -46,14 +51,14 @@
             <!-- {{ rows }} -->
         </div>
         <div id="quiz_button_one">
-            <button onclick="document.getElementById('answer_line').style.visibility = 'visible'">one</button>
+            <button onclick="document.getElementById('answer_line').style.visibility = 'visible'">Show Answer</button>
         </div>
         <div id="quiz_button_two">
             <!-- <a href="/quiz?topic={{ topic_choice }}&quiz={{ quiz_choice }}"><button >two</button></a> -->
-            <button onclick="nextQuestion(true)">two</button>
+            <button onclick="nextQuestion(false)">Wrong</button>
         </div>
         <div id="quiz_button_three">
-            <button>three</button>
+            <button onclick="nextQuestion(true)">Correct</button>
         </div>
     </div>
     <script>
